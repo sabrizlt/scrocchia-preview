@@ -41,7 +41,7 @@ PRODUCTS = [
          intro=["La Dama Tipo 0 er et mel laget av en utvalgt blanding av korn med høyt proteininnhold, noe som gir en stabil og elastisk deig ved middels til lang modning. Dette er et balansert og kraftig mel som samtidig gjør det enkelt å forme og håndtere deigemner, også i profesjonell produksjon.",
                 "Skann QR‑koden for å se Scrocchia 80 sin pizza oppskrift!"],
          specs=[], doc=(LIVE + "/wp-content/uploads/2026/05/technical-sheet-La-Dama-1kg.pdf", "Technical sheet La Dama 1kg")),
-    dict(slug="la-rossa-by-scrocchia-80", title="La Rossa by Scrocchia 80", price="kr 65,00", reviews="1 kundeomtale", images=[0, 1, 2, 3], dark=True,
+    dict(slug="la-rossa-by-scrocchia-80", title="La Rossa by Scrocchia 80", price="kr 65,00", reviews="1 kundeomtale", images=[0, 1, 2, 3],
          intro=["A natural, gluten‑free tomato pulp sauce made with chunky tomato pieces, enriched with oregano and basil.",
                 "Bright red colour, aromatic profile, and a balanced, slightly rustic texture that enhances both flavour and visual appeal.",
                 "Born for pizza, ideal for focaccia, and general food preparation."],
@@ -105,7 +105,7 @@ def page(filename, title, description, body, current=None):
 <p class="notice">Fri frakt for bestillinger over 699 nok!</p>
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html" aria-label="Scrocchia 80, hjem"><img src="assets/Color-logo-no-background-e1775132351699.png" alt="Scrocchia 80"></a>
+    <a class="brand" href="index.html" aria-label="Scrocchia 80, hjem"><img src="assets/logo-full.png" alt="Scrocchia 80"></a>
     <nav class="site-nav" aria-label="Hovedmeny">{nav}
       <button class="cart" type="button" data-demo="{ADD}"><span class="label">Handlekurv</span><b>0</b></button>
     </nav>
@@ -115,7 +115,7 @@ def page(filename, title, description, body, current=None):
 {body}
 </main>
 <footer class="site-footer">
-  <p class="footer-word">Scrocchia 80</p>
+  <a class="footer-logo" href="index.html" aria-label="Scrocchia 80, hjem"><img src="assets/logo-full.png" alt="Scrocchia 80"></a>
   <div class="footer-cols">
     <div><h2>Kontakt</h2><ul>
       <li>Adresse: Skærdalen 38, 3533 Tyristrand</li>
@@ -233,22 +233,25 @@ for p in PRODUCTS:
 page("om-oss.html", "Om oss – Scrocchia 80", "Et lite, men lidenskapelig selskap grunnlagt i hjertet av Oslo.", """
 <header class="page-head reveal"><p class="eyebrow">Om oss</p><h1 style="margin-top:.9rem">Velkommen til Scrocchia 80</h1></header>
 <section class="about-grid">
-  <div class="reveal">
-    <div class="block">
-      <p>Vi er et lite, men lidenskapelig selskap grunnlagt i hjertet av Oslo, Norge. Som italienere er vår misjon enkel: å dele vår kjærlighet for autentisk, håndverksmessig pizza med dere. Hos oss kombinerer vi tradisjonell håndverksbaking med innovative løsninger for å skape pizzabunner som tilbyr den perfekte balansen mellom sprøhet, smak og kvalitet.</p>
-      <p>Vi har viet mye tid og omtanke til å utvikle en unik oppskrift for deigen, og hver pizzabunn vi produserer er laget med maksimal innsats for å sikre høye standarder, både i smak og praktisk bruk. Enten det er en travel dag eller en spesiell anledning, gjør vårt produkt det enklere for restauranter og matentusiaster å servere autentisk og deilig pizza.</p>
-    </div>
-    <div class="block">
-      <h2>Det handler om mer enn bare pizza</h2>
-      <p>For oss handler det om å samle folk gjennom ekstraordinære kulinariske opplevelser. Vi tror på verdien av kvalitetsingredienser, ekte håndverk, og den spesielle følelsen man får av å dele et måltid med mennesker man setter pris på.</p>
-      <p>Når du velger Scrocchia 80, kjøper du ikke bare et produkt – du velger en partner som deler din lidenskap for god mat og som er dedikert til å hjelpe deg med å oppnå suksess. Vi er stolte av å bevare den rike tradisjonen med pizza, samtidig som vi tilfører innovasjon og kvalitet i hver fase av prosessen vår.</p>
-      <p>Vi ser frem til å følge deg i din reise mot den perfekte pizzabiten!</p>
-    </div>
+  <div class="block reveal">
+    <h2>Lidenskap for ekte pizza</h2>
+    <p>Vi er et lite, men lidenskapelig selskap grunnlagt i hjertet av Oslo, Norge. Som italienere er vår misjon enkel: å dele vår kjærlighet for autentisk, håndverksmessig pizza med dere. Hos oss kombinerer vi tradisjonell håndverksbaking med innovative løsninger for å skape pizzabunner som tilbyr den perfekte balansen mellom sprøhet, smak og kvalitet.</p>
+    <p>Vi har viet mye tid og omtanke til å utvikle en unik oppskrift for deigen, og hver pizzabunn vi produserer er laget med maksimal innsats for å sikre høye standarder, både i smak og praktisk bruk. Enten det er en travel dag eller en spesiell anledning, gjør vårt produkt det enklere for restauranter og matentusiaster å servere autentisk og deilig pizza.</p>
   </div>
-  <div class="team reveal">
-    <img src="assets/p5-768x1024.jpeg" alt="Fra Scrocchia 80-teamet, med en pizzabunn i hendene" loading="lazy">
-    <img src="assets/p3-768x1024.jpeg" alt="Fra Scrocchia 80-teamet, med en kjevle" loading="lazy">
+  <div class="block reveal">
+    <h2>Det handler om mer enn bare pizza</h2>
+    <p>For oss handler det om å samle folk gjennom ekstraordinære kulinariske opplevelser. Vi tror på verdien av kvalitetsingredienser, ekte håndverk, og den spesielle følelsen man får av å dele et måltid med mennesker man setter pris på.</p>
+    <p>Når du velger Scrocchia 80, kjøper du ikke bare et produkt – du velger en partner som deler din lidenskap for god mat og som er dedikert til å hjelpe deg med å oppnå suksess. Vi er stolte av å bevare den rike tradisjonen med pizza, samtidig som vi tilfører innovasjon og kvalitet i hver fase av prosessen vår.</p>
+    <p>Vi ser frem til å følge deg i din reise mot den perfekte pizzabiten!</p>
   </div>
+</section>
+<section class="team" aria-label="Teamet">
+  <img class="reveal" src="assets/team-p1.jpg" alt="Fra Scrocchia 80-teamet, med en pizzaspade" loading="lazy">
+  <img class="reveal" src="assets/team-p3.jpg" alt="Fra Scrocchia 80-teamet, med en kjevle" loading="lazy">
+  <img class="reveal" src="assets/team-p5.jpg" alt="Fra Scrocchia 80-teamet, med en pizzabunn i hendene" loading="lazy">
+  <img class="reveal" src="assets/team-p2.jpg" alt="Fra Scrocchia 80-teamet" loading="lazy">
+  <img class="reveal" src="assets/team-p4.jpg" alt="Fra Scrocchia 80-teamet" loading="lazy">
+  <img class="reveal" src="assets/team-p6.jpg" alt="Fra Scrocchia 80-teamet" loading="lazy">
 </section>
 <section class="section pull"><blockquote class="reveal">«Vi er stolte av de resultatene vi har oppnådd, og vi tror fast at pizzabunnene fra Scrocchia 80 kan konkurrere ikke bare med våre direkte konkurrenter, men også med ulike tradisjonelle pizzerias»</blockquote></section>
 """, "om-oss.html")
