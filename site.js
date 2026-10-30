@@ -21,6 +21,21 @@ addEventListener("DOMContentLoaded", () => {
   });
 
   // Anteprima: né la handlekurv né i moduli fanno davvero qualcosa.
+  // Menu a tutto schermo
+  const burger = document.querySelector(".burger");
+  const menu = document.querySelector(".menu");
+  const toggle = (open) => {
+    menu.classList.toggle("open", open);
+    menu.inert = !open;
+    burger.setAttribute("aria-expanded", String(open));
+    document.documentElement.classList.toggle("menu-open", open);
+  };
+  burger.addEventListener("click", () => toggle(!menu.classList.contains("open")));
+  menu.addEventListener("click", (event) => { if (event.target.closest("a")) toggle(false); });
+  addEventListener("keydown", (event) => { if (event.key === "Escape") toggle(false); });
+  // Tornando indietro con il browser il menu non deve restare aperto.
+  addEventListener("pageshow", () => toggle(false));
+
   const toast = document.querySelector(".toast");
   let timer;
   const say = (text) => {

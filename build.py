@@ -11,7 +11,14 @@ def T(nb, en, it):
     return {"nb": nb, "en": en, "it": it}
 
 
+FLAGS = {
+    "nb": '<svg viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg>',
+    "en": '<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#c8102e" stroke-width="2.5"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg>',
+    "it": '<svg viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="3" height="2" fill="#fff"/><rect width="1" height="2" fill="#009246"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg>',
+}
+
 UI = dict(
+    menu=T("Meny", "Menu", "Menu"),
     notice=T("Fri frakt for bestillinger over 699 nok!", "Free shipping on orders over 699 NOK!", "Spedizione gratuita per ordini superiori a 699 NOK!"),
     about=T("Om oss", "About us", "Su di noi"),
     business_short=T("Bedrift", "Business", "Aziende"),
@@ -245,7 +252,7 @@ def page(lang, filename, title, description, body, current=None):
     u = lambda key: UI[key][lang]
     up = "../" if LANGS[lang][0] else ""
     switch = "".join(
-        f'<a href="{up}{LANGS[other][0]}{filename}" hreflang="{other}" lang="{other}" aria-label="{name}">{short}</a>'
+        f'<a href="{up}{LANGS[other][0]}{filename}" hreflang="{other}" lang="{other}" aria-label="{name}">{FLAGS[other]}</a>'
         for other, (_, name, short) in LANGS.items() if other != lang)
     cur = lambda href: ' aria-current="page"' if href == current else ""
     alternates = "".join(f'<link rel="alternate" hreflang="{o}" href="{up}{LANGS[o][0]}{filename}">' for o in LANGS)
@@ -257,24 +264,37 @@ def page(lang, filename, title, description, body, current=None):
 <title>{title}</title>
 <meta name="description" content="{description}">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2e5a3c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="https://sabrizlt.github.io/scrocchia-preview/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sabrizlt.github.io/scrocchia-preview/{LANGS[lang][0]}{filename}">
 {alternates}
-<link rel="stylesheet" href="{up}styles.css?v=3">
-<script src="{up}site.js?v=3"></script>
+<link rel="stylesheet" href="{up}styles.css?v=5">
+<script src="{up}site.js?v=5"></script>
 </head>
 <body data-form-demo="{u('form_demo')}">
 <a class="skip" href="#main">{u('skip')}</a>
-<div class="top">
-<div class="notice"><p>{u('notice')}</p><nav class="lang-switch" aria-label="Language">{switch}</nav></div>
+<p class="notice">{u('notice')}</p>
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html" aria-label="Scrocchia 80"><img src="{up}assets/logo-full.png" alt="Scrocchia 80"></a>
-    <nav class="site-nav" aria-label="Menu">
-      <a href="butikk.html"{cur('butikk.html')}>Shop</a><a href="om-oss.html"{cur('om-oss.html')}>{u('about')}</a><a href="bedrift.html"{cur('bedrift.html')}>{u('business_short')}</a>
-      <button class="cart" type="button" data-demo="{u('demo')}" aria-label="{u('cart')}"><span class="label">{u('cart')}</span><b>0</b></button>
-    </nav>
+    <a class="brand" href="index.html" aria-label="Scrocchia 80"><img src="{up}assets/logo-full.png" alt="Scrocchia 80" width="186" height="100"></a>
+    <div class="tools">
+      <nav class="flags" aria-label="Language">{switch}</nav>
+      <button class="cart" type="button" data-demo="{u('demo')}" aria-label="{u('cart')}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b>0</b></button>
+      <button class="burger" type="button" aria-label="{u('menu')}" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
-</div>
+<nav class="menu" id="menu" aria-label="{u('menu')}" inert>
+  <a href="index.html"{cur('index.html')}>Home</a>
+  <a href="butikk.html"{cur('butikk.html')}>Shop</a>
+  <a href="om-oss.html"{cur('om-oss.html')}>{u('about')}</a>
+  <a href="bedrift.html"{cur('bedrift.html')}>{u('business')}</a>
+</nav>
 <main id="main">
 {body}
 </main>
@@ -370,7 +390,7 @@ def build(lang):
 </section>
 
 <section class="section ingredients">
-  <div class="media reveal"><video data-lazy="{up}assets/hero-540.mp4" muted loop playsinline aria-hidden="true"></video></div>
+  <div class="media reveal"><video data-lazy="{up}assets/hero-540.mp4" muted loop playsinline poster="{up}assets/og.jpg" aria-hidden="true"></video></div>
   <div class="reveal">
     <p class="eyebrow">{h('ing_eye')}</p>
     <h2 class="title">{h('ing_title')}</h2>
