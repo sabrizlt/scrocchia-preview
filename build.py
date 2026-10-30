@@ -273,8 +273,8 @@ def page(lang, filename, title, description, body, current=None):
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://sabrizlt.github.io/scrocchia-preview/{LANGS[lang][0]}{filename}">
 {alternates}
-<link rel="stylesheet" href="{up}styles.css?v=5">
-<script src="{up}site.js?v=5"></script>
+<link rel="stylesheet" href="{up}styles.css?v=6">
+<script src="{up}site.js?v=6"></script>
 </head>
 <body data-form-demo="{u('form_demo')}">
 <a class="skip" href="#main">{u('skip')}</a>

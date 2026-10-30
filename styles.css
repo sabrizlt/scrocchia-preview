@@ -60,7 +60,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 html.menu-open { overflow: hidden; }
 .menu { overscroll-behavior: contain; }
 @media (max-height: 500px) {
-  .menu { justify-content: flex-start; gap: .4rem; padding-top: 88px; }
+  .menu { justify-content: flex-start; gap: .4rem; padding-top: 120px; }
   .menu a { font-size: 2rem; }
 }
 
