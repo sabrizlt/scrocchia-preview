@@ -36,7 +36,7 @@ addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      form.querySelector(".form-note").textContent = "Forhåndsvisning: skjemaet sender ingenting ennå.";
+      form.querySelector(".form-note").textContent = document.body.dataset.formDemo;
     });
   }
 });

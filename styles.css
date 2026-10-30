@@ -29,7 +29,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .skip:focus { left: 1rem; top: 1rem; z-index: 30; background: var(--cream); padding: .5rem 1rem; }
 
 /* Testata */
-.notice { background: var(--green); color: #fff; text-align: center; font-size: .8125rem; padding: .5rem 1rem; }
+.notice { position: relative; display: flex; align-items: center; justify-content: center; min-height: 36px; padding: .4rem 6.5rem; background: var(--green); color: #fff; text-align: center; font-size: .8125rem; line-height: 1.25; }
+.lang-switch { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); display: flex; gap: .3rem; }
+.lang-switch a { padding: .15rem .55rem; border: 1px solid rgba(255, 255, 255, .55); border-radius: 99px; font-size: .75rem; font-weight: 600; letter-spacing: .03em; transition: background .2s, color .2s; }
+.lang-switch a:hover { background: #fff; color: var(--green); }
 .site-header { position: sticky; top: 0; z-index: 20; background: rgba(251, 246, 236, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .bar { height: 76px; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand img { height: 50px; width: auto; }
@@ -180,6 +183,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media (max-width: 520px) {
+  .notice { justify-content: flex-start; padding: .4rem 6.25rem .4rem var(--gutter); text-align: left; font-size: .75rem; }
   .bar { height: 66px; }
   .brand img { height: 42px; }
   .site-nav { gap: .85rem; font-size: .875rem; }
