@@ -31,9 +31,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* Testata */
 .notice { position: relative; display: flex; align-items: center; justify-content: center; min-height: 36px; padding: .4rem 6.5rem; background: var(--green); color: #fff; text-align: center; font-size: .8125rem; line-height: 1.25; }
 .lang-switch { position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%); display: flex; gap: .3rem; }
-.lang-switch a { padding: .15rem .55rem; border: 1px solid rgba(255, 255, 255, .55); border-radius: 99px; font-size: .75rem; font-weight: 600; letter-spacing: .03em; transition: background .2s, color .2s; }
-.lang-switch a:hover { background: #fff; color: var(--green); }
-.site-header { position: sticky; top: 0; z-index: 20; background: rgba(251, 246, 236, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.lang-switch a { padding: .2rem .65rem; border-radius: 99px; background: #fff; color: var(--green); font-size: .75rem; font-weight: 700; letter-spacing: .03em; transition: background .2s, color .2s; }
+.lang-switch a:hover { background: var(--cream); color: var(--ink); }
+.top { position: sticky; top: 0; z-index: 20; }
+.site-header { background: rgba(251, 246, 236, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .bar { height: 76px; padding: 0 var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand img { height: 50px; width: auto; }
 .site-nav { display: flex; align-items: center; gap: clamp(1rem, 2.6vw, 2.25rem); font-size: .9375rem; font-weight: 500; }
@@ -92,7 +93,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* Ingredienti */
 .ingredients { background: var(--ink); color: #fff; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
 .ingredients .eyebrow { color: #ff7a6b; }
-.ingredients .media { position: sticky; top: 110px; border-radius: var(--radius); overflow: hidden; }
+.ingredients .media { position: sticky; top: 130px; border-radius: var(--radius); overflow: hidden; }
 .ingredients video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .ingredients .lede { margin-top: 1.5rem; color: #cfc8bc; }
 .ingredient-list { margin-top: 2.5rem; }
@@ -117,7 +118,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .gallery figure.dark { background: #000; }
 .gallery figure:first-child { grid-column: 1 / -1; aspect-ratio: 5 / 4; }
 .gallery img { width: 100%; height: 100%; object-fit: contain; }
-.product-info { position: sticky; top: 110px; }
+.product-info { position: sticky; top: 130px; }
 .back { display: inline-block; margin-bottom: 1.5rem; font-size: .9375rem; color: var(--soft); }
 .back:hover { color: var(--ink); }
 .product-info h1 { font-size: clamp(2.5rem, 4.6vw, 4.25rem); }

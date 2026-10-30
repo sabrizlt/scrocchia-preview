@@ -258,11 +258,12 @@ def page(lang, filename, title, description, body, current=None):
 <meta name="description" content="{description}">
 <meta name="robots" content="noindex, nofollow">
 {alternates}
-<link rel="stylesheet" href="{up}styles.css">
-<script src="{up}site.js"></script>
+<link rel="stylesheet" href="{up}styles.css?v=3">
+<script src="{up}site.js?v=3"></script>
 </head>
 <body data-form-demo="{u('form_demo')}">
 <a class="skip" href="#main">{u('skip')}</a>
+<div class="top">
 <div class="notice"><p>{u('notice')}</p><nav class="lang-switch" aria-label="Language">{switch}</nav></div>
 <header class="site-header">
   <div class="bar">
@@ -273,6 +274,7 @@ def page(lang, filename, title, description, body, current=None):
     </nav>
   </div>
 </header>
+</div>
 <main id="main">
 {body}
 </main>
